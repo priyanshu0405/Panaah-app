@@ -5,10 +5,13 @@ import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
 import 'Tpage.dart';
 import 'Ppage.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-final databaseReference = Firestore.instance;
+final databaseReference = FirebaseFirestore.instance;
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MaterialApp(
     home: MyApp(),
   ));
